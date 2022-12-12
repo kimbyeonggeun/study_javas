@@ -8,6 +8,6 @@ public class Cars extends Vehicles {
     }
 
     public int speed(int kms, int hour) {
-        return kms / hour + this.oneway_count;
+        return kms / hour + oneway_count;
     }
 }
