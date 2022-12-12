@@ -1,21 +1,27 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static int plus3(int A, int B){
-        return A+B;
-    }
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int count = scanner.nextInt();
-        int A;
-        int B;
+        Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        int avg = 0, sum = 0;
+        int[] arr = new int[count];
 
-        for(int i=0; i<count; i++){
-            A = scanner.nextInt();
-            B = scanner.nextInt();
-            int output = plus3(A,B);
-            System.out.println(output);
+        // 값 입력
+        for (int i = 0; i < count; i++) {
+            arr[i] = sc.nextInt();
         }
-        scanner.close();
+
+        // 정렬
+        Arrays.sort(arr);
+
+        // 조작한 점수
+        int M = arr[count - 1];
+        for (int i = 0; i < count; i++) {
+            sum += arr[i];
+        }
+
+        System.out.println(sum * 100 / M / count);
     }
 }
