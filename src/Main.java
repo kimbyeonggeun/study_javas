@@ -1,27 +1,27 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int count = sc.nextInt();
-        int avg = 0, sum = 0;
+
         int[] arr = new int[count];
 
-        // 값 입력
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
+            int sum = 0;
+            for (int j = 0; j < arr.length; j++) {
+                sum += arr[j];
+            }
+            double avg = sum / count;
+            int cnt = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] > avg) {
+                    cnt++;
+                }
+            }
+            double persent = cnt / count * 100.000;
+            System.out.print(persent + '%');
         }
-
-        // 정렬
-        Arrays.sort(arr);
-
-        // 조작한 점수
-        int M = arr[count - 1];
-        for (int i = 0; i < count; i++) {
-            sum += arr[i];
-        }
-
-        System.out.println(sum * 100 / M / count);
     }
 }
